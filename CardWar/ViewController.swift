@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var firstCardImageView: UIImageView!
     @IBOutlet var secondCardImageView: UIImageView!
     @IBOutlet var playRoundButton: UIButton!
+    var cardNamesArray:[String] = ["ace", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "jack", "queen", "king"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,13 +30,13 @@ class ViewController: UIViewController {
 
     @IBAction func playRoundTapped(sender: AnyObject) {
 
-        let firstRandomNumber = arc4random_uniform(13) + 1
-        let firstCardString: String = String(format: "card%i", firstRandomNumber)
+        let firstRandomNumber: Int = Int(arc4random_uniform(13))
+        let firstCardString: String = cardNamesArray[firstRandomNumber]
 
         firstCardImageView.image = UIImage(named: firstCardString)
 
-        let secondRandomNumber = arc4random_uniform(13) + 1
-        let secondCardString: String = String(format: "card%i", secondRandomNumber)
+        let secondRandomNumber: Int = Int(arc4random_uniform(13))
+        let secondCardString: String = cardNamesArray[secondRandomNumber]
 
         secondCardImageView.image = UIImage(named: secondCardString)
     }
