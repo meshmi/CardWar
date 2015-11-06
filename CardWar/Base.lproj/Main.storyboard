@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,34 +22,73 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="cXB-rD-pzp">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.014210611221352809" green="1" blue="0.24859589547812078" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="46" y="209" width="126" height="182"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="182" id="N0E-Er-c8u"/>
+                                    <constraint firstAttribute="width" constant="126" id="N0G-oq-Z7g"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="N0E-Er-c8u"/>
+                                        <exclude reference="N0G-oq-Z7g"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="N0E-Er-c8u"/>
+                                        <include reference="N0G-oq-Z7g"/>
+                                    </mask>
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="XhJ-35-5UF">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.073242540117265498" green="0.40301394630567189" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="231" y="209" width="126" height="182"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="0Bb-sG-SlV"/>
+                                    <constraint firstAttribute="height" constant="182" id="F8D-AV-YL3"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0Bb-sG-SlV"/>
+                                        <exclude reference="F8D-AV-YL3"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="0Bb-sG-SlV"/>
+                                        <include reference="F8D-AV-YL3"/>
+                                    </mask>
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wk-1V-VCK">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Play Round"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="162" y="449" width="77" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="playRoundTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gB1-cG-ahQ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cXB-rD-pzp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="209" id="05a-FY-gIU"/>
+                            <constraint firstAttribute="trailing" secondItem="XhJ-35-5UF" secondAttribute="trailing" constant="43" id="1x5-Nz-1uL"/>
+                            <constraint firstItem="XhJ-35-5UF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="209" id="DD5-mX-FGv"/>
+                            <constraint firstItem="0wk-1V-VCK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="IGe-5v-3gN"/>
+                            <constraint firstItem="cXB-rD-pzp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="46" id="SDg-9x-Aw6"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="0wk-1V-VCK" secondAttribute="bottom" constant="121" id="WbK-En-hlF"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="cXB-rD-pzp"/>
                                 <exclude reference="XhJ-35-5UF"/>
                                 <exclude reference="0wk-1V-VCK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="05a-FY-gIU"/>
+                                <exclude reference="SDg-9x-Aw6"/>
+                                <exclude reference="1x5-Nz-1uL"/>
+                                <exclude reference="DD5-mX-FGv"/>
+                                <exclude reference="IGe-5v-3gN"/>
+                                <exclude reference="WbK-En-hlF"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -55,6 +96,14 @@
                                 <include reference="cXB-rD-pzp"/>
                                 <include reference="XhJ-35-5UF"/>
                                 <include reference="0wk-1V-VCK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="05a-FY-gIU"/>
+                                <include reference="SDg-9x-Aw6"/>
+                                <include reference="1x5-Nz-1uL"/>
+                                <include reference="DD5-mX-FGv"/>
+                                <include reference="IGe-5v-3gN"/>
+                                <include reference="WbK-En-hlF"/>
                             </mask>
                         </variation>
                     </view>
