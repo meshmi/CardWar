@@ -13,7 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet var firstCardImageView: UIImageView!
     @IBOutlet var secondCardImageView: UIImageView!
     @IBOutlet var playRoundButton: UIButton!
+    @IBOutlet var player2Score: UILabel!
+    @IBOutlet var player1Score: UILabel!
     var cardNamesArray:[String] = ["ace", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "jack", "queen", "king"]
+
+    var player1ScoreValue: Int = 0
+    var player2ScoreValue: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +44,15 @@ class ViewController: UIViewController {
         let secondCardString: String = cardNamesArray[secondRandomNumber]
 
         secondCardImageView.image = UIImage(named: secondCardString)
+
+        if firstRandomNumber > secondRandomNumber {
+            player1ScoreValue += 1
+            self.player1Score.text = String(player1ScoreValue)
+        }
+        else if firstRandomNumber < secondRandomNumber{
+            player2ScoreValue += 1
+            self.player2Score.text = String(player2ScoreValue)
+        }
     }
 }
 
